@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  word: MyString
+  description: MyText
+  trigger: MyString
+  picture: one
+
+two:
+  word: MyString
+  description: MyText
+  trigger: MyString
+  picture: two
