@@ -6849,3 +6849,105 @@ Processing by Api::V1::ImagesController#index as */*
 Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 1.2ms | Allocations: 3334)
 
 
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateImages (20210529171717)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[35mDROP TABLE "images"[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateVocabularies (20210529170650)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "vocabularies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "word" varchar, "description" text, "trigger" varchar, "image_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_81f48d459e"
+FOREIGN KEY ("image_id")
+  REFERENCES "images" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_vocabularies_on_image_id" ON "vocabularies" ("image_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210529170650"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateImages (20210529171717)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "images" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "category" varchar, "url" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210529171717"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-06-01 17:03:12.516762"], ["updated_at", "2021-06-01 17:03:12.516762"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mImage Create (1.0ms)[0m  [1m[32mINSERT INTO "images" ("category", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "mean"], ["url", "https://cdn.costumewall.com/wp-content/uploads/2017/03/cruella-de-vil.jpg"], ["created_at", "2021-06-01 17:03:21.140495"], ["updated_at", "2021-06-01 17:03:21.140495"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mImage Create (0.9ms)[0m  [1m[32mINSERT INTO "images" ("category", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "indifferent"], ["url", "https://images.squarespace-cdn.com/content/v1/54992035e4b0c49940a59e49/1586714639270-6O27VM796316NPD4R3DH/ke17ZwdGBToddI8pDm48kM67dVXED_yMBjHtlg_uL0sUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcNPDvIAs8f1WUKmWSu3fO4mWtI-U7sMj89S5lCDO4xNISmZH7m9nvOKn--z65CT5h/image-asset.jpeg?format=2500w"], ["created_at", "2021-06-01 17:03:21.145575"], ["updated_at", "2021-06-01 17:03:21.145575"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mImage Create (0.8ms)[0m  [1m[32mINSERT INTO "images" ("category", "url", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["category", "smart"], ["url", "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c3100d30-b066-47b5-9972-f34bfebcb82e/de89d31-398603fe-20fa-4f01-8718-8df57b020579.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2MzMTAwZDMwLWIwNjYtNDdiNS05OTcyLWYzNGJmZWJjYjgyZVwvZGU4OWQzMS0zOTg2MDNmZS0yMGZhLTRmMDEtODcxOC04ZGY1N2IwMjA1NzkucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.u-WnmksmImkX9siInvxGh_aUSHmEKng72oD2F6m6nxs"], ["created_at", "2021-06-01 17:03:21.150169"], ["updated_at", "2021-06-01 17:03:21.150169"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVocabulary Create (1.1ms)[0m  [1m[32mINSERT INTO "vocabularies" ("word", "description", "trigger", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["word", "abase"], ["description", "to humiliate, degrade"], ["trigger", "fall into abyss"], ["image_id", 1], ["created_at", "2021-06-01 17:03:21.165977"], ["updated_at", "2021-06-01 17:03:21.165977"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVocabulary Create (0.9ms)[0m  [1m[32mINSERT INTO "vocabularies" ("word", "description", "trigger", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["word", "apathetic"], ["description", "lacking concern, emotion"], ["trigger", "no empathy"], ["image_id", 2], ["created_at", "2021-06-01 17:03:21.171313"], ["updated_at", "2021-06-01 17:03:21.171313"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVocabulary Create (0.8ms)[0m  [1m[32mINSERT INTO "vocabularies" ("word", "description", "trigger", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["word", "cogent"], ["description", "intellectually convincing"], ["trigger", "the FBI agent was coherent"], ["image_id", 3], ["created_at", "2021-06-01 17:03:21.175841"], ["updated_at", "2021-06-01 17:03:21.175841"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mVocabulary Create (0.9ms)[0m  [1m[32mINSERT INTO "vocabularies" ("word", "description", "trigger", "image_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["word", "demean"], ["description", "to lower the status or stature of something"], ["trigger", "mean stunts to humiliate"], ["image_id", 1], ["created_at", "2021-06-01 17:03:21.180056"], ["updated_at", "2021-06-01 17:03:21.180056"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/api/v1/images" for ::1 at 2021-06-01 13:03:29 -0400
+Processing by Api::V1::ImagesController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/images_controller.rb:8:in `index'
+  [1m[36mImage Load (0.3ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/controllers/api/v1/images_controller.rb:8:in `index'
+  [1m[36mVocabulary Load (0.4ms)[0m  [1m[34mSELECT "vocabularies".* FROM "vocabularies" WHERE "vocabularies"."image_id" = ?[0m  [["image_id", 1]]
+  ↳ app/controllers/api/v1/images_controller.rb:8:in `index'
+  [1m[36mVocabulary Load (0.4ms)[0m  [1m[34mSELECT "vocabularies".* FROM "vocabularies" WHERE "vocabularies"."image_id" = ?[0m  [["image_id", 2]]
+  ↳ app/controllers/api/v1/images_controller.rb:8:in `index'
+  [1m[36mVocabulary Load (0.3ms)[0m  [1m[34mSELECT "vocabularies".* FROM "vocabularies" WHERE "vocabularies"."image_id" = ?[0m  [["image_id", 3]]
+  ↳ app/controllers/api/v1/images_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 1.9ms | Allocations: 11017)
+
+
+Started GET "/favicon.ico" for ::1 at 2021-06-01 13:03:29 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/v1/images" for ::1 at 2021-06-01 13:03:35 -0400
+Processing by Api::V1::ImagesController#index as */*
+  [1m[36mImage Load (0.4ms)[0m  [1m[34mSELECT "images".* FROM "images"[0m
+  ↳ app/controllers/api/v1/images_controller.rb:8:in `index'
+  [1m[36mVocabulary Load (0.5ms)[0m  [1m[34mSELECT "vocabularies".* FROM "vocabularies" WHERE "vocabularies"."image_id" = ?[0m  [["image_id", 1]]
+  ↳ app/controllers/api/v1/images_controller.rb:8:in `index'
+  [1m[36mVocabulary Load (0.3ms)[0m  [1m[34mSELECT "vocabularies".* FROM "vocabularies" WHERE "vocabularies"."image_id" = ?[0m  [["image_id", 2]]
+  ↳ app/controllers/api/v1/images_controller.rb:8:in `index'
+  [1m[36mVocabulary Load (0.4ms)[0m  [1m[34mSELECT "vocabularies".* FROM "vocabularies" WHERE "vocabularies"."image_id" = ?[0m  [["image_id", 3]]
+  ↳ app/controllers/api/v1/images_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 1.5ms | Allocations: 3570)
+
+
