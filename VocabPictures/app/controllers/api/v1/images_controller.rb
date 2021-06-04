@@ -20,9 +20,12 @@ class Api::V1::ImagesController < ApplicationController
     # POST /images
     def create
       @image = Image.new(image_params)
-  
+    
       if @image.save
-        render json: @image, status: :created, location: @image
+        render json: {
+          status: 201,
+          image: @image}, 
+          status: :created
       else
         render json: @image.errors, status: :unprocessable_entity
       end
@@ -39,7 +42,12 @@ class Api::V1::ImagesController < ApplicationController
   
     # DELETE /images/1
     def destroy
-      @image.destroy
+      if @image.destroy
+        render json: {message: "Successfully Deleted", image: @image}
+      else 
+        render json: {message: "Failed to Delete"}
+      end
+      
     end
   
     private
