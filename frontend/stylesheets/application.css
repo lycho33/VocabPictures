@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-size: 100%;
+    font-family: sans-serif;
+}
+
+div, ul, li{
+    box-sizing: border-box;
+}
+
+.Intro{
+    width: 100%;
+    padding: 20px 50px;
+    background-color: #78D5D7; 
+}
+
+#images-container li{
+    display: inline-block;
+    margin: 20px;
+    /* position: relative; */
+}
+
+#form-container{
+    background-color: #BED8D4;
+    width: 100%;
+    float: left;
+    height: 10vh;
+    padding: 20px 50px;
+    position: relative;
+}
+
+h3{
+    position: absolute;
+    top: 30%;  
+    left: 50%;  
+    transform: translate(-50%, -50%);
+}
+
+#form-container form{
+    position: absolute;
+    top: 60%; 
+    left: 50%;  
+    transform: translate(-50%, -50%);
+}
+
+.button {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50; /* Green */
+}
