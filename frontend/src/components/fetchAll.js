@@ -56,7 +56,7 @@ class FetchAll {
         .catch(err => console.error(err))
     }
 
-    createVocabulary(i){
+    createVocabulary(input){
         fetch(this.url, {
             method: "POST",
             headers: {
@@ -64,14 +64,14 @@ class FetchAll {
                 'Accept': 'application/json'
             },
             body: JSON.stringify(
-                i
+                input
             )
         })
         .then(r => r.json())
         .then(data => {
-            console.log(`Let's create that voacab`, data)
-            debugger
+            console.log(`Let's create that vocab`, data)
             const v = new Vocabulary(data.vocabularies)
+            debugger
             v.addVocab();
         })
         .catch(err => console.error(err))

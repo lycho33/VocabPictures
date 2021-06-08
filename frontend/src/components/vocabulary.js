@@ -8,11 +8,11 @@ class Vocabulary {
         this.description = description;
         this.trigger = trigger;
         this.image_id = image_id;
-
+        // this.render = this.render.bind(this)
         Vocabulary.all.push(this)
     }
 
-    render(){
+    render = () => {
         return(`
             <li data-id=${this.id}><span>${this.word}</span> - <span>${this.description}</span></li>
             <h5>The Trigger: ${this.trigger}</h5>
@@ -21,21 +21,23 @@ class Vocabulary {
 
     static listenAdd(){
         const imagesContainer = document.getElementById('images-container');
-        imagesContainer.addEventListener('click', this.handleAdd)
+        imagesContainer.addEventListener('click', this.handleAdd.bind(this))
     }
 
     static handleAdd(e){
+        console.log(this)
         const li = e.target.parentElement
         const action = e.target.dataset.action
         if (action === 'add') {
             console.log(`Let's add some vocabulary`, li.dataset.id)
             const i = Image.all.find(i => i.id == li.dataset.id)
-            i.addVocabForm();
+            console.log(i)
+            Vocabulary.addVocabForm(i.id);
         }
     }
 
-    addVocabForm(){
-        const image = document.getElementById(`image-${this.id}`)
+    static addVocabForm = (id) => {
+        const image = document.getElementById(`image-${id}`)
         const form = document.createElement('form')
 
         form.innerHTML = `<input id='vocab-input' placeholder='word' type='text'/>
@@ -44,8 +46,14 @@ class Vocabulary {
         <input id='image-submit' value='submit' type='submit' data-action="create"/>`
 
         image.append(form)
-        form.addEventListener('click', this.handleAdd)
+        form.addEventListener('click', this.handleSumit)
     }
 
+    static handleSumit(e) {
+        e.preventDefault()
+        const input = e.target
+        fetchAll.createVocabulary(input)
+        // e.target.remove()
+    }
   
 }
