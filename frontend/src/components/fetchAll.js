@@ -33,6 +33,7 @@ class FetchAll {
             if (data.status === 201) {
                 const i = new Image(data.image)
                 i.addToDom()
+                debugger
             } else {
                 alert(data.errors)
             }
@@ -57,6 +58,7 @@ class FetchAll {
     }
 
     createVocabulary(input){
+        // debugger
         fetch(this.url, {
             method: "POST",
             headers: {
@@ -71,7 +73,6 @@ class FetchAll {
         .then(data => {
             console.log(`Let's create that vocab`, data)
             const v = new Vocabulary(data.vocabularies)
-            debugger
             v.addVocab();
         })
         .catch(err => console.error(err))

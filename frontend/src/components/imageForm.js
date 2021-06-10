@@ -6,26 +6,27 @@ class ImageForm {
         this.handleDelete = this.handleDelete.bind(this)
     }
     
-    static addCreateForm(){
+    static addCreateForm = () => {
         const formContainer = document.getElementById('form-container');
         const form = document.createElement('form')
 
         form.innerHTML = `<input id='image-input' placeholder='description' type='text'/>
         <input id='image-input' placeholder='image url' aria-describedby="addon-wrapping"type='text'/>
-        <button class="btn btn-outline-primary"     id='image-submit' value='submit' type='submit' data-action="create"/>Create</button>`
+        <button class="btn btn-outline-primary" id='image-submit' value='submit' type='submit' data-action="create"/>Create</button>`
         
         formContainer.append(form)
         form.addEventListener('submit', this.handleSubmit)
     }
 
-    static handleSubmit(event){
-        event.preventDefault()
-        const input = event.target
+    static handleSubmit(e){
+        e.preventDefault()
+        const input = e.target
         let obj = [...input.elements]
         let args = {image: {}}
         args.image.category = obj[0].value
         args.image.url = obj[1].value
         fetchAll.createImage(args) 
+        // debugger
     }
 
    static listenDelete(){

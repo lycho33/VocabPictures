@@ -14,7 +14,11 @@ class Api::V1::ImagesController < ApplicationController
   
     # GET /images/1
     def show
-      render json: @image
+      render json: @image, only: [:id, :category, :url], include: {
+        vocabularies: {
+          except: [:created_at, :updated_at]
+        }
+      }
     end
   
     # POST /images

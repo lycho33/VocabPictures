@@ -40,20 +40,25 @@ class Vocabulary {
         const image = document.getElementById(`image-${id}`)
         const form = document.createElement('form')
 
-        form.innerHTML = `<input id='vocab-input' placeholder='word' type='text'/>
-        <input id='vocab-input' placeholder='definition' type='text'/>
-        <input id='vocab-input' placeholder='trigger word' type='text'/>
-        <input id='image-submit' value='submit' type='submit' data-action="create"/>`
+        form.dataset.id = id
+        form.id = "form"
+
+        form.innerHTML = `<input id='word' placeholder='word' type='text'/>
+        <input id='definition' placeholder='definition' type='text'/>
+        <input id='trigger' placeholder='trigger word' type='text'/>
+        <input id='vocab-submit' value='submit' type='submit' data-action="create"/>`
 
         image.append(form)
-        form.addEventListener('click', this.handleSumit)
+        form.addEventListener('submit', this.handleSubmit)
     }
 
-    static handleSumit(e) {
-        e.preventDefault()
+    static handleSubmit(e) {
+        e.preventDefault() //prevents the browser from redirecting to a different page and auto-submitting 
         const input = e.target
-        fetchAll.createVocabulary(input)
-        // e.target.remove()
+        let args = {vocabularies: {}}
+
+        fetchAll.createVocabulary(args)
+     
     }
   
 }
